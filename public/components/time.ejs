@@ -1,0 +1,44 @@
+<link rel="import" href="../assets/bower/polymer/polymer.html">
+<polymer-element name="last-updated" attributes="timestamp">
+  <template>
+    <style>
+      :host {
+        font-family: sans-serif;
+      }
+    </style>
+    Updated {{result}}
+  </template>
+  <script>
+    Polymer('last-updated', {
+      ready: function() {
+        var createdTime = this.timestamp,
+            currentTime = Math.round((new Date()).getTime()),
+            elapsedTime = currentTime - createdTime,
+            msPerMinute = 60 * 1000,
+            msPerHour = msPerMinute * 60,
+            msPerDay = msPerHour * 24,
+            msPerMonth = msPerDay * 30,
+            msPerYear = msPerDay * 365;
+
+        if (elapsedTime < msPerMinute) {
+         this.result = Math.round(elapsedTime/1000) + ' seconds ago';
+        }
+        else if (elapsedTime < msPerHour) {
+         this.result = Math.round(elapsedTime/msPerMinute) + ' minutes ago';
+        }
+        else if (elapsedTime < msPerDay ) {
+          this.result = Math.round(elapsedTime/msPerHour ) + ' hours ago';
+        }
+        else if (elapsedTime < msPerMonth) {
+         this.result = 'approximately ' + Math.round(elapsedTime/msPerDay) + ' days ago';
+        }
+        else if (elapsedTime < msPerYear) {
+         this.result = 'approximately ' + Math.round(elapsedTime/msPerMonth) + ' months ago';
+        }
+        else {
+         this.result = 'approximately ' + Math.round(elapsedTime/msPerYear ) + ' years ago';
+        }
+      }
+    });
+  </script>
+</polymer-element>

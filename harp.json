@@ -1,0 +1,8 @@
+{
+  "domains": [""],
+  "globals": {
+    "site_title": "Harp Boilerplate",
+    "twitter": "@HarpPlatform",
+    "site_url": "/"
+  }
+}
