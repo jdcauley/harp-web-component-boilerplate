@@ -1,0 +1,10 @@
+{
+  "name": "harp-polymer-boilerplate",
+  "version": "0.0.1",
+  "dependencies": {
+    "platform": "Polymer/platform#master",
+    "polymer": "Polymer/polymer#master",
+    "bootstrap": "~3.2.0"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harp Boilerplate</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="assets/bower/platform/platform.js"></script>
+    
+      <link rel="import" href="components/time.html">
+    
+  </head>
+  <body class="page=components">
+
+
+    <link rel="import" href="../assets/bower/polymer/polymer.html">
+<polymer-element name="last-updated" attributes="timestamp">
+  <template>
+    <style>
+      :host {
+        font-family: sans-serif;
+      }
+    </style>
+    Updated {{result}}
+  </template>
+  <script>
+    Polymer('last-updated', {
+      ready: function() {
+        var self = this;
+        setInterval(function(){
+          var createdTime = self.timestamp,
+              currentTime = Math.round((new Date()).getTime()),
+              elapsedTime = currentTime - createdTime,
+              msPerMinute = 60 * 1000,
+              msPerHour = msPerMinute * 60,
+              msPerDay = msPerHour * 24,
+              msPerMonth = msPerDay * 30,
+              msPerYear = msPerDay * 365;
+
+          if (elapsedTime < msPerMinute) {
+            self.result =  ' just now';
+          }
+          else if (elapsedTime < msPerHour) {
+            self.result = ' a few minutes ago';
+          }
+          else if (elapsedTime < msPerDay ) {
+            self.result = Math.round(elapsedTime/msPerHour ) + ' hours ago';
+          }
+          else if (elapsedTime < msPerMonth) {
+            self.result = 'approximately ' + Math.round(elapsedTime/msPerDay) + ' days ago';
+          }
+          else if (elapsedTime < msPerYear) {
+            self.result = 'approximately ' + Math.round(elapsedTime/msPerMonth) + ' months ago';
+          }
+          else {
+           self.result = 'approximately ' + Math.round(elapsedTime/msPerYear ) + ' years ago';
+          }
+        }, 500);
+      }
+    });
+  </script>
+</polymer-element>
+
+    <script>
+      var newTime = new Date().getTime();
+      var holder = document.getElementById('test');
+
+      var newAttr = document.createAttribute('timestamp');
+      holder.setAttributeNode(newAttr);
+      holder.setAttribute('timestamp', newTime);
+    </script>
+    <script>
+      document.addEventListener('WebComponentsReady', function() {
+          // Perform some behaviour
+      });
+    </script>
+
+  </body>
+</html>
