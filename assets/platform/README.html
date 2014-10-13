@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harp Boilerplate</title>
+    <link rel="stylesheet" href="http://jdcauley.github.io/harp-web-component-boilerplate/assets/css/app.css">
+    <script src="http://jdcauley.github.io/harp-web-component-boilerplate/assets/platform/platform.js"></script>
+    
+      <link rel="import" href="http://jdcauley.github.io/harp-web-component-boilerplate/components/time.html">
+    
+  </head>
+  <body class="page=assets">
+
+
+    <h1>Platform</h1>
+<p>Aggregated polyfills the Polymer platform. </p>
+<p><a href="https://github.com/igrigorik/ga-beacon"><img src="https://ga-beacon.appspot.com/UA-39334307-2/Polymer/platform/README" alt="Analytics"></a></p>
+
+    <script>
+      var newTime = new Date().getTime();
+      var holder = document.getElementById('test');
+
+      var newAttr = document.createAttribute('timestamp');
+      holder.setAttributeNode(newAttr);
+      holder.setAttribute('timestamp', newTime);
+    </script>
+    <script>
+      document.addEventListener('WebComponentsReady', function() {
+          // Perform some behaviour
+      });
+    </script>
+
+  </body>
+</html>

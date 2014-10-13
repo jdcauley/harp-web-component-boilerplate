@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harp Boilerplate</title>
+    <link rel="stylesheet" href="http://jdcauley.github.io/harp-web-component-boilerplate/assets/css/app.css">
+    <script src="http://jdcauley.github.io/harp-web-component-boilerplate/assets/platform/platform.js"></script>
+    
+      <link rel="import" href="http://jdcauley.github.io/harp-web-component-boilerplate/components/time.html">
+    
+  </head>
+  <body class="page=assets">
+
+
+    <h1>Polymer</h1>
+<p><a href="https://github.com/igrigorik/ga-beacon"><img src="https://ga-beacon.appspot.com/UA-39334307-2/Polymer/polymer/README" alt="Analytics"></a></p>
+<p>Build Status: <a href="http://build.chromium.org/p/client.polymer/waterfall"><a href="http://build.chromium.org/p/client.polymer/waterfall">http://build.chromium.org/p/client.polymer/waterfall</a></a></p>
+<h2>Brief Overview</h2>
+<p>For more detailed info goto <a href="http://polymer-project.org/"><a href="http://polymer-project.org/">http://polymer-project.org/</a></a>.</p>
+<p>Polymer is a new type of library for the web, designed to leverage the existing browser infrastructure to provide the encapsulation and extendability currently only available in JS libraries.</p>
+<p>Polymer is based on a set of future technologies, including <a href="https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html">Shadow DOM</a>, <a href="https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/custom/index.html">Custom Elements</a> and Model Driven Views. Currently these technologies are implemented as polyfills or shims, but as browsers adopt these features natively, the platform code that drives Polymer evacipates, leaving only the value-adds.</p>
+<h2>Tools &amp; Testing</h2>
+<p>For running tests or building minified files, consult the <a href="http://www.polymer-project.org/resources/tooling-strategy.html">tooling information</a>.</p>
+
+    <script>
+      var newTime = new Date().getTime();
+      var holder = document.getElementById('test');
+
+      var newAttr = document.createAttribute('timestamp');
+      holder.setAttributeNode(newAttr);
+      holder.setAttribute('timestamp', newTime);
+    </script>
+    <script>
+      document.addEventListener('WebComponentsReady', function() {
+          // Perform some behaviour
+      });
+    </script>
+
+  </body>
+</html>
